@@ -34,22 +34,26 @@
 ```mermaid
 gantt
     title System Design Roadmap
-    dateFormat  YYYY-MM-DD
-    axisFormat  %b %d
+    dateFormat YYYY-MM-DD
+    axisFormat %b %d
+
     section Foundations
-    01 Framework & estimation   :done,    n01, 2026-10-05, 7d
-    02 LXD/Incus lab            :active,  n02, after n01, 3d
+    Framework and estimation : done, n01, 2026-10-05, 7d
+    LXD lab                  : active, n02, after n01, 3d
+
     section Core
-    03 Networking & APIs        :         n03, after n02, 10d
-    04 Storage & databases      :         n04, after n03, 14d
-    05 Replication & sharding   :crit,    n05, after n04, 14d
-    06 Distributed theory       :crit,    n06, after n05, 14d
-    section Scale & ops
-    07 Caching & scaling        :
-    08 Messaging                :         n08, after n07, 14d
-    09 Reliability              :         n09, after n08, 10d
+    Networking and APIs      : n03, after n02, 10d
+    Storage and databases    : n04, after n03, 14d
+    Replication and sharding : crit, n05, after n04, 14d
+    Distributed theory       : crit, n06, after n05, 14d
+
+    section Scale and ops
+    Caching and scaling      : n07, after n06, 10d
+    Messaging                : n08, after n07, 14d
+    Reliability              : n09, after n08, 10d
+
     section Finish
-    Casebook (40 problems)      :
-    Capstone                    :milestone, after cb, 0d
+    Casebook                 : cb, after n05, 90d
+    Capstone                 : milestone, cap, after cb, 0d
 ```
 
