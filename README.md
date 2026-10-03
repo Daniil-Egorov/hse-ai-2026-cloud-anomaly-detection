@@ -36,18 +36,18 @@
 **Сроки**: с 2026.10 по 2027.06.
 **Формат взаимодействия**: еженедельно встречаемся, грумим & декомпозируем задачи, планируемся, подводим итоги недели, встреча час. Также во время ресерч-фазы каждый подробно делится с коллегами разобранными моделями, рассказывает простыми словами про принцип их работы, делится опытом.
 **Стэк**:
-    - ЯП: Python
-    - ML: sklearn, pytorch, transformers
-    - MLOps: MLFlow
-    - Автоматизация: Ansible / Docker compose
-    - Если будет дорого арендовать много машинок, поднимем LXC/LXD.
-    - Транспорт: Kafka
-    - Сервисы: fastapi
-    - База (если будет): Postgres
-    - Потоковая обработка: Flink
-    - Observability: Prometheus & Grafana & Opentelemetry
-    - Для исследований Jupyter Notebook'и, может поднимем общий Jupyter Hub.
-    - Будем много делать агентами, поэтому желательно обзавестись claude code / codex / deepseek harness + комьюнити модули
+- ЯП: Python
+- ML: sklearn, pytorch, transformers
+- MLOps: MLFlow
+- Автоматизация: Ansible / Docker compose
+- Если будет дорого арендовать много машинок, поднимем LXC/LXD.
+- Транспорт: Kafka
+- Сервисы: fastapi
+- База (если будет): Postgres
+- Потоковая обработка: Flink
+- Observability: Prometheus & Grafana & Opentelemetry
+- Для исследований Jupyter Notebook'и, может поднимем общий Jupyter Hub.
+- Будем много делать агентами, поэтому желательно обзавестись claude code / codex / deepseek harness + комьюнити модули
 
 ### Образ результата
 
@@ -92,19 +92,19 @@
 #### Классический ML (бейзлайн)
 
 **Unsupervised**:
-    - Isolation Forest
-    - Local Outlier Factor (LOF)
-    - Классический PCA
-    - Кластеризация: k-means, DBSCAN, иерархическая кластеризация
-    - Gaussian Mixture Models / Mahalanobis distance (про второе не слышал, стоит поисследовать)
-    - Цепи Маркова
+- Isolation Forest
+- Local Outlier Factor (LOF)
+- Классический PCA
+- Кластеризация: k-means, DBSCAN, иерархическая кластеризация
+- Gaussian Mixture Models / Mahalanobis distance (про второе не слышал, стоит поисследовать)
+- Цепи Маркова
 **Supervised (для наших симуляций)**
-    - LogReg
-    - Бустинговые модели (Catboost, XDGBoost и пр.)
-    - SVM (плохо скейлится, работает медленно, но почему бы не потестить?)
-    - Naive Bayes
-    - LDA
-    - KNN (подозреваю, что будет не очень хорошо работать, т.к. аномальных сэмплов явно меньше и имеем дело с перекосом. Может, поможет SMOTE?)
+- LogReg
+- Бустинговые модели (Catboost, XDGBoost и пр.)
+- SVM (плохо скейлится, работает медленно, но почему бы не потестить?)
+- Naive Bayes
+- LDA
+- KNN (подозреваю, что будет не очень хорошо работать, т.к. аномальных сэмплов явно меньше и имеем дело с перекосом. Может, поможет SMOTE?)
 
 #### DL (WIP)
 
