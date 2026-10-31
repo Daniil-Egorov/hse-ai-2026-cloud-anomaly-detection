@@ -1,0 +1,10 @@
+pandas==2.3.3
+numpy==2.3.5
+matplotlib==3.10.6
+seaborn==0.13.2
+tqdm==4.67.1
+nbformat==5.10.4
+nbclient==0.10.2
+nbconvert==7.16.6
+ipykernel==6.31.0
+jupyter==1.1.1
