@@ -8,3 +8,4 @@ nbclient==0.10.2
 nbconvert==7.16.6
 ipykernel==6.31.0
 jupyter==1.1.1
+drain3==0.9.11
