@@ -47,7 +47,7 @@
 - Потоковая обработка: Flink
 - Observability: Prometheus & Grafana & Opentelemetry
 - Для исследований Jupyter Notebook'и, может поднимем общий Jupyter Hub.
-- Будем много делать агентами, поэтому желательно обзавестись claude code / codex / deepseek harness + комьюнити модули
+- Будем много делать агентами, поэтому желательно обзавестись claude code / deepseek harness + комьюнити модули
 
 ### Образ результата
 
@@ -147,3 +147,21 @@ python -m unittest discover -s tests -p test_loghub_systems.py -v
 
 Источники и условия исследовательского использования: [LogHub](https://github.com/logpai/loghub), [Zenodo 8196385](https://zenodo.org/records/8196385), [Drain3](https://github.com/logpai/Drain3). Ссылки на описания конкретных источников приведены в начале каждого ноутбука.
 
+## EDA Hadoop, OpenStack, Android и HPC
+
+[@RoMaIlIka — ноутбук с результатами](notebooks/eda_romailika_loghub.ipynb). В нём четыре датасета и выводы по каждому из них. Hadoop разбирается с учётом многострочных событий. Разметка Hadoop относится к заданиям, а разметка OpenStack указывает на виртуальные машины из прогона со сбоями. В Android и HPC меток аномалий нет.
+
+Для запуска из корня репозитория нужен Python 3.11.8 или новее. В активированном виртуальном окружении выполни:
+
+```bash
+python -m pip install -r requirements-eda-romailika.txt
+python -m util.run_eda_romailika
+```
+
+Первый запуск скачает около 37 МБ с Zenodo. [Загрузчик](util/loghub_romailika.py) проверит MD5 архивов и распакует их в `data/romailika/raw/`. Повторный запуск использует эти файлы. Для Android нужно несколько ГБ свободной памяти. CSV, JSON и графики появятся в `data/romailika/reports/`.
+
+Проверки загрузчика, парсеров и расчёта временных окон:
+
+```bash
+python -m unittest discover -s tests -p test_loghub_romailika.py -v
+```
