@@ -1,4 +1,4 @@
-"""Streaming raw-file audit and bounded-memory EDA for LogHub.
+"""Tritich's streaming raw-file audit and bounded-memory EDA for LogHub.
 
 Full-file counters are kept separately from uniformly sampled logical records.
 Caches are local, disposable products under data/processed (not source data).

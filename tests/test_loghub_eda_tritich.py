@@ -6,7 +6,7 @@ import tempfile
 import unittest
 import hashlib
 
-from util.loghub_eda import (
+from util.loghub_eda_tritich import (
     Reservoir, _audit_windows_blocks, audit_dataset, entities, parse_line, parse_time,
     window_counts,
     exact_bgl_duplicates,
