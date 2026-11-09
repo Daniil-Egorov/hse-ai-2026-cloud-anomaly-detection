@@ -115,3 +115,35 @@
 - Nemotron
 - Эмбеддинги + подмена "головы", здесь можно взять любой классический ML
 
+## EDA: Thunderbird, OpenSSH, ZooKeeper, Mac
+
+Каждый ноутбук содержит все 11 разделов чеклиста, результаты выполнения и финальные выводы:
+
+| Датасет | Ноутбук | Область исследования |
+|---|---|---|
+| Thunderbird | [eda_thunderbird.ipynb](notebooks/eda_thunderbird.ipynb) | Полный поток для объёмов, времени, хостов и alert-категорий; случайные 100 000 строк для текстов и Drain3 |
+| OpenSSH | [eda_openssh.ipynb](notebooks/eda_openssh.ipynb) | Полный файл |
+| ZooKeeper | [eda_zookeeper.ipynb](notebooks/eda_zookeeper.ipynb) | Полный файл |
+| Mac | [eda_mac.ipynb](notebooks/eda_mac.ipynb) | Полный файл с восстановлением многострочных событий |
+
+Проверено на Python 3.12. Зависимости устанавливаются в выбранное виртуальное окружение:
+
+```bash
+python -m pip install -r requirements-eda-systems.txt
+python -m util.run_systems_eda
+```
+
+Для отдельного исследования: `python -m util.run_systems_eda OpenSSH` (также `Zookeeper`, `Mac`, `Thunderbird`). В Jupyter можно выбрать это окружение и выполнить Restart Kernel → Run All; рабочая директория должна быть корнем проекта или `notebooks/`.
+
+[Загрузчик](util/loghub_systems.py) самостоятельно скачивает фиксированную версию архивов Zenodo, проверяет опубликованные MD5 и вычисляет SHA-256 содержимого. Данные и кэш остаются в игнорируемой Git директории `data/systems/`. Архивы не распаковываются на диск. Thunderbird требует около 2 GB загрузки; первый полный проход читает около 30 GiB через gzip и может занять десятки минут. Повторные запуски проверяют архив и используют кэш агрегатов и выборки. Нужен доступ к Zenodo при первой загрузке; тихой подмены данными `_2k` нет.
+
+[Вычисления EDA](util/loghub_eda.py) отделяют физические строки от событий и сохраняют нулевые временные окна. Для OpenSSH/Mac год условный, часовой пояс неизвестен. Для Thunderbird доли текстовых признаков относятся к выборке, а интенсивность — ко всему потоку. Только Thunderbird имеет официальные alert-метки; уровни ERROR/WARN и подозрительный текст в остальных источниках не считаются разметкой аномалий.
+
+Проверки контрактов загрузчика, парсеров и расчётов:
+
+```bash
+python -m unittest discover -s tests -p test_loghub_systems.py -v
+```
+
+Источники и условия исследовательского использования: [LogHub](https://github.com/logpai/loghub), [Zenodo 8196385](https://zenodo.org/records/8196385), [Drain3](https://github.com/logpai/Drain3). Ссылки на описания конкретных источников приведены в начале каждого ноутбука.
+
