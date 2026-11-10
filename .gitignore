@@ -1,4 +1,15 @@
-.venv/
-data/
+# Python
 __pycache__/
+*.py[cod]
 .ipynb_checkpoints/
+
+# Виртуальное окружение
+.venv/
+
+# Данные (скачиваются и распаковываются функциями из util/loghub.py)
+data/
+
+# Артефакты
+*.csv
+*.png
+*.pdf
