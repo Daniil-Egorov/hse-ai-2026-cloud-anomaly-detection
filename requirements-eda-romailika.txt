@@ -1,0 +1,5 @@
+-r requirements.txt
+
+# Direct dependencies of the notebook runner
+jupyter-client==8.10.0
+matplotlib-inline==0.2.2
